@@ -125,7 +125,86 @@ export const appConfig = {
     showSoldCount: true,
     showPromoBadge: true,
     showStockStatus: true,
-    showReviewAvatars: true // Показывать аватарки в отзывах
+    showReviewAvatars: true, // Показывать аватарки в отзывах
+    showVSL: true // Показывать VSL видео
+  },
+
+  // VSL (Video Sales Letter) настройки
+  vsl: {
+    enabled: true,
+    videoUrl: 'https://example.com/diaclose-vsl.mp4', // URL вашего VSL видео
+    posterUrl: '/src/assets/vsl/diaclose-poster.jpg', // Постер для видео
+    title: 'VSL - Diaclose',
+    autoPlay: false,
+    showControls: true,
+    fallbackText: 'VSL' // Текст если видео недоступно
+  },
+
+  // Google Play отзывы (легко изменяемые)
+  googlePlayReviews: [
+    {
+      id: 1,
+      userTitle: "Ulasan Pengguna",
+      singleReviewDate: "28 September 2024",
+      singleReviewText: "Aplikasi K24Klik sangat membantu! Pengiriman cepat dan obat original.",
+      likes: "959 orang menandai ulasan ini sebagai bermanfaat.",
+      userLetter: 'A',
+      userScore: 5,
+      avatar: '/src/assets/avatars/google-play/user-1.jpg', // Аватарка для Google Play
+      avatarInitials: 'AP' // Инициалы для fallback
+    },
+    {
+      id: 2,
+      userTitle: "Ulasan Pengguna",
+      singleReviewDate: "25 September 2024",
+      singleReviewText: "Pelayanan 24 jam sangat memudahkan. Obat sampai tepat waktu!",
+      likes: "756 orang menandai ulasan ini sebagai bermanfaat.",
+      userLetter: 'B',
+      userScore: 5,
+      avatar: '/src/assets/avatars/google-play/user-2.jpg',
+      avatarInitials: 'BS'
+    },
+    {
+      id: 3,
+      userTitle: "Ulasan Pengguna",
+      singleReviewDate: "22 September 2024",
+      singleReviewText: "Apotek online terpercaya. Harga terjangkau dan kualitas terjamin.",
+      likes: "634 orang menandai ulasan ini sebagai bermanfaat.",
+      userLetter: 'C',
+      userScore: 4,
+      avatar: '/src/assets/avatars/google-play/user-3.jpg',
+      avatarInitials: 'CS'
+    },
+    {
+      id: 4,
+      userTitle: "Ulasan Pengguna",
+      singleReviewDate: "20 September 2024",
+      singleReviewText: "Sangat puas dengan layanan K24Klik. Aplikasi mudah digunakan.",
+      likes: "892 orang menandai ulasan ini sebagai bermanfaat.",
+      userLetter: 'D',
+      userScore: 5,
+      avatar: '/src/assets/avatars/google-play/user-4.jpg',
+      avatarInitials: 'DR'
+    },
+    {
+      id: 5,
+      userTitle: "Ulasan Pengguna",
+      singleReviewDate: "18 September 2024",
+      singleReviewText: "Obat original dan pengiriman super cepat. Recommended!",
+      likes: "445 orang menandai ulasan ini sebagai bermanfaat.",
+      userLetter: 'E',
+      userScore: 5,
+      avatar: '/src/assets/avatars/google-play/user-5.jpg',
+      avatarInitials: 'ES'
+    }
+  ],
+
+  // Настройки Google Play
+  googlePlay: {
+    showReviewAvatars: true, // Показывать аватарки в отзывах Google Play
+    showReviewDates: true,
+    showReviewLikes: true,
+    maxReviewsToShow: 5
   }
 };
 

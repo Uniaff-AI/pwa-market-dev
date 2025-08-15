@@ -9,6 +9,7 @@ import slider3 from '../assets/google-play/slider/slider-3.webp';
 import slider4 from '../assets/google-play/slider/slider-4.webp';
 import slider5 from '../assets/google-play/slider/slider-5.webp';
 import slider6 from '../assets/google-play/slider/slider-6.webp';
+import { appConfig } from '../config/appConfig';
 
 export const GooglePlayText = {
   header: {
@@ -61,35 +62,10 @@ Dapatkan PENGIRIMAN GRATIS dengan kode: KIRIMGRATISK24KLIK.`,
     F: 0,
   } as TScore<number>,
   scoreAppStats: '35,6 juta ulasan',
-  reviews: [
-    {
-      id: 1,
-      userTitle: "Ulasan Pengguna",
-      singleReviewDate: "28 September 2024",
-      singleReviewText: "ULASAN APLIKASI DENGAN REFERENSI KE PRODUK INOVATIF",
-      likes: "959 orang menandai ulasan ini sebagai bermanfaat.",
-      userLetter: 'P',
-      userScore: 4
-    },
-    {
-      id: 2,
-      userTitle: "Ulasan Pengguna",
-      singleReviewDate: "28 September 2024",
-      singleReviewText: "ULASAN APLIKASI DENGAN REFERENSI KE PRODUK INOVATIF",
-      likes: "959 orang menandai ulasan ini sebagai bermanfaat.",
-      userLetter: 'P',
-      userScore: 5
-    },
-    {
-      id: 3,
-      userTitle: "Ulasan Pengguna",
-      singleReviewDate: "28 September 2024",
-      singleReviewText: "ULASAN APLIKASI DENGAN REFERENSI KE PRODUK INOVATIF",
-      likes: "959 orang menandai ulasan ini sebagai bermanfaat.",
-      userLetter: 'P',
-      userScore: 5
-    },
-  ] as TReview[],
+  // Используем отзывы из конфигурации
+  get reviews() {
+    return appConfig.googlePlayReviews.slice(0, appConfig.googlePlay.maxReviewsToShow) as TReview[];
+  },
   nav: {
     games: "Game",
     apps: "Aplikasi",
