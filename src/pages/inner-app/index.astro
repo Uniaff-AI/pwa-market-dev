@@ -1,0 +1,21 @@
+---
+
+import Layout from '@/layouts/Layout.astro';
+import Header from '@/components/innerapp/Header/Header.astro';
+import MainApp from '@/components/innerapp/MainApp/MainApp.astro';
+import { InnerAppText } from '@/content/innerAppText';
+
+const currentPath = Astro.url.pathname;
+const isInnerAppPage = currentPath === '/innerapp' || currentPath === '/innerapp/';
+const isBasketPage = currentPath === '/innerapp/basket' || currentPath === '/innerapp/basket/';
+
+---
+
+<Layout>
+  <Header showArrowLink={!isInnerAppPage} showBasket={!isBasketPage} title={InnerAppText.title}/>
+  <MainApp/>
+</Layout>
+
+<script>
+
+</script>

@@ -1,0 +1,50 @@
+---
+
+import { GooglePlayText } from '@/content/googlePlayText';
+import RenderScoreInViewStars from '../RenderScoreInViewStart/RenderScoreInViewStars';
+import { ArrowRight } from 'lucide-react';
+import Slider from '../Slider/Slider';
+import { Button } from '../../ui/button';
+import RenderScore from '../RenderScore/RenderScore';
+import RenderScoreLines from '../RenderScoreLines/RenderScoreLines';
+import Reviews from '../Reviews/Reviews';
+
+---
+
+<main>
+  <div class="my-7.5">
+    <Slider client:load sliderItems={GooglePlayText.sliderInfo} />
+  </div>
+  <div>
+    <div class="flex justify-between items-center">
+      <h2 class="text-lg font-semibold">
+        {GooglePlayText.app.descriptionTitle}
+      </h2>
+      <Button className="size-12 rounded-full duration-200 cursor-pointer bg-transparent hover:bg-[rgb(245,245,245)]">
+        <ArrowRight className="size-6 text-[rgb(95,99,104)]" />
+      </Button>
+    </div>
+    <p class="text-[rgb(95,99,104)] tracking-wide text-sm mt-2">
+      {GooglePlayText.app.description}
+    </p>
+    <div class="flex flex-col gap-1 my-6">
+      <h4 class="font-semibold text-sm tracking-wider text-[rgb(32,33,36)]">{GooglePlayText.app.lastUpdateTitle}</h4>
+      <p class="text-[rgb(95,99,104)] tracking-wide text-sm">{GooglePlayText.app.lastUpdateDate}</p>
+    </div>
+    <Button
+      className="border-[rgb(218,220,224)] border-solid border-1 bg-transparent text-[rgb(95,99,104)] text-sm font-semibold tracking-wide duration-200 hover:text-[rgb(32,33,36)] hover:bg-[rgb(247,248,248)] hover:border-transparent rounded-xl cursor-pointer">{GooglePlayText.app.category}</Button>
+  </div>
+  <section class="my-7">
+    <div>
+      <div class="grid grid-cols-[80px_1fr] gap-15">
+        <div>
+          <RenderScore scores={GooglePlayText.scoresInfo} client:visible />
+          <RenderScoreInViewStars scores={GooglePlayText.scoresInfo} client:visible />
+        </div>
+        <RenderScoreLines scores={GooglePlayText.scoresInfo} client:visible />
+      </div>
+      <p class="mt-3 text-[rgb(95,99,104)] text-xs tracking-wider">{GooglePlayText.scoreAppStats}</p>
+    </div>
+    <Reviews client:visible />
+  </section>
+</main>

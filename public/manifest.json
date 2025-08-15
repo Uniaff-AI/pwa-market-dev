@@ -1,0 +1,44 @@
+{
+  "name": "Klik Obat",
+  "short_name": "Klik Obat",
+  "description": "Онлайн аптека Klik Obat - быстрая доставка лекарств",
+  "start_url": "/inner-app",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#01875f",
+  "orientation": "portrait",
+  "scope": "/",
+  "categories": ["health", "shopping", "medical"],
+  "lang": "ru",
+  "dir": "ltr",
+  "icons": [
+    {
+      "src": "/favicon_v3.ico",
+      "sizes": "any",
+      "type": "image/x-icon",
+      "purpose": "any"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Открыть приложение",
+      "short_name": "Открыть",
+      "description": "Быстрый доступ к приложению",
+      "url": "/inner-app",
+      "icons": [
+        {
+          "src": "/favicon_v3.ico",
+          "sizes": "any"
+        }
+      ]
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/favicon_v3.ico",
+      "sizes": "any",
+      "type": "image/x-icon",
+      "form_factor": "wide"
+    }
+  ]
+} 

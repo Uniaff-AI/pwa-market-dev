@@ -1,0 +1,52 @@
+---
+
+import { GooglePlayText } from '@/content/googlePlayText';
+import GameIcon from '@/assets/icons/google-play/nav/game.svg';
+import AppsIcon from '@/assets/icons/google-play/nav/apps.svg';
+import BooksIcon from '@/assets/icons/google-play/nav/books.svg';
+import KidsIcon from '@/assets/icons/google-play/nav/kids.svg';
+
+---
+
+<footer class="footer py-1 flex items-center max-w-[500px]">
+  <nav class="grid grid-cols-4 gap-1 w-full">
+    <a href="#" class="flex flex-col items-center">
+      <div>
+        <GameIcon class={'fill-[rgb(95,99,104)]'} />
+      </div>
+      <span class="text-sm leading-[100%] text-[rgb(95,99,104)]">{GooglePlayText.nav.games}</span>
+    </a>
+    <a href="#" class="flex flex-col items-center">
+      <div>
+        <AppsIcon class={'fill-[#01875f]'} />
+      </div>
+      <span class="text-sm leading-[100%] text-[#01875f] font-medium">{GooglePlayText.nav.apps}</span>
+    </a>
+    <a href="#" class="flex flex-col items-center">
+      <div>
+        <BooksIcon class={'fill-[rgb(95,99,104)]'} />
+      </div>
+      <span class="text-sm leading-[100%] text-[rgb(95,99,104)]">{GooglePlayText.nav.books}</span>
+    </a>
+    <a href="#" class="flex flex-col items-center">
+      <div>
+        <KidsIcon class={'fill-[rgb(95,99,104)]'} />
+      </div>
+      <span class="text-sm leading-[100%] text-[rgb(95,99,104)]">{GooglePlayText.nav.kids}</span>
+    </a>
+  </nav>
+</footer>
+
+<style>
+  .footer {
+    border-top: 1px solid rgb(218, 220, 224);
+    height: 56px;
+    position: fixed;
+    background-color: #fff;
+    bottom: 0;
+    width: 100%;
+    z-index: 3;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+</style>

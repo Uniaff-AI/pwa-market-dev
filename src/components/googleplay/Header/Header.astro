@@ -1,0 +1,12 @@
+---
+
+import { GooglePlayText } from '@/content/googlePlayText';
+import { Image } from 'astro:assets';
+import LogoSvg from '@/assets/icons/google-play/logo.svg';
+
+---
+
+<header class="flex items-center gap-2 sticky top-0 mb-12 bg-white z-10 pt-10 pb-2">
+  <Image src={LogoSvg} alt="Google Play Logo" />
+  <span class="text-[rgb(95,99,104)] text-[22px] leading-[28px]">{GooglePlayText.header.title}</span>
+</header>

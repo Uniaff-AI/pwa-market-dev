@@ -1,0 +1,46 @@
+---
+import '../styles/global.css';
+import 'material-icons/iconfont/material-icons.css';
+import { GooglePlayText } from '@/content/googlePlayText';
+---
+
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" href="/favicon_v3.ico" />
+  <meta name="viewport" content="width=device-width" />
+  <meta name="generator" content={Astro.generator} />
+  
+  <!-- PWA Meta Tags -->
+  <meta name="theme-color" content="#01875f" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="apple-mobile-web-app-title" content="Klik Obat" />
+  <link rel="apple-touch-icon" href="/favicon_v3.ico" />
+  
+  <!-- PWA Manifest -->
+  <link rel="manifest" href="/manifest.json" />
+  
+  <title>Приложения в Google Play - {GooglePlayText.app.name}</title>
+</head>
+<body>
+  <div class="container">
+    <slot />
+  </div>
+  
+  <script>
+    // Регистрация Service Worker
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js')
+          .then((registration) => {
+            console.log('SW registered: ', registration);
+          })
+          .catch((registrationError) => {
+            console.log('SW registration failed: ', registrationError);
+          });
+      });
+    }
+  </script>
+</body>
+</html>

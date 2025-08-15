@@ -1,0 +1,25 @@
+---
+import NavLink from '../NavLink/NavLink.astro';
+import BasketIcon from '@/assets/icons/inner-app/basket.svg';
+import ArrowLeftIcon from '@/assets/icons/inner-app/arrow-left.svg';
+type HeaderProps = {
+  showArrowLink?: boolean
+  showBasket?: boolean
+  title?: string
+}
+
+const { showArrowLink = false, showBasket = false, title= 'Title App' } = Astro.props as HeaderProps;
+
+---
+
+<header class="bg-[#05A345] relative flex justify-center items-center h-14 rounded-b-[20px] font-poppins sticky top-0 z-50">
+  {showArrowLink && (
+    <NavLink linkUrl="/inner-app/">
+      <ArrowLeftIcon/>
+    </NavLink>
+  )}
+  <h1 class="text-white text-xl">{title}</h1>
+  {showBasket && (<NavLink linkUrl="/inner-app/basket" left={false} >
+    <BasketIcon/>
+  </NavLink>)}
+</header>

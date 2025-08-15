@@ -1,0 +1,53 @@
+---
+import { Image } from 'astro:assets';
+import { GooglePlayText } from '../../../content/googlePlayText';
+import { InstallProgress } from '../InstallProgress/InstallProgress';
+---
+
+<section>
+  <div class="flex gap-6">
+    <div>
+      <Image src={GooglePlayText.app.logo} alt="Image App" width={72} height={72} class={'rounded-[20%]'} />
+    </div>
+    <div class="flex flex-col">
+      <h1 class="text-[36px] leading-[44px] text-[rgb(32,33,36)] font-semibold">{GooglePlayText.app.name}</h1>
+      <p class="text-[rgb(1,135,95)] font-semibold cursor-pointer">{GooglePlayText.app.author}</p>
+    </div>
+  </div>
+  <div class="flex gap-6 mt-7 mb-6">
+    <div class="pr-4 text-center">
+      <h5 class="text-sm text-[rgb(32,33,36)] tracking-wider font-semibold">{GooglePlayText.app.downloads}</h5>
+      <span class="text-[rgb(95,99,104)] tracking-wider text-sm">{GooglePlayText.app.subTitleDownloads}</span>
+    </div>
+    <div class="pl-6 container__info flex flex-col gap-1">
+      <Image src={GooglePlayText.app.urlAgeConstrant} alt="Icon Years Old" width={17} height={16} />
+      <span class="text-[rgb(95,99,104)] tracking-wider text-sm flex items-center gap-1">
+            {GooglePlayText.app.ageRating}
+        <span class="material-icons-outlined cursor-pointer"
+              style={{ fontSize: '12px', color: 'rgb(95, 99, 104)' }}>
+              info
+            </span>
+          </span>
+    </div>
+  </div>
+  <div>
+    <InstallProgress client:load />
+  </div>
+</section>
+
+<style>
+  .container__info {
+    position: relative;
+  }
+
+  .container__info:before {
+    background-color: rgb(232, 234, 237);
+    content: "";
+    display: block;
+    height: 24px;
+    left: 0;
+    position: absolute;
+    top: calc(50% - 12px);
+    width: 1px;
+  }
+</style>

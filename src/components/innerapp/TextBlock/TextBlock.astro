@@ -1,0 +1,16 @@
+---
+import LineBreak from '../LineBreak/LineBreak.astro';
+type TextBlockProps = {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props as TextBlockProps;
+
+---
+
+<div class="text-sm">
+  <h3 class="mb-2 font-semibold">{title}</h3>
+  <p>{description}</p>
+  <LineBreak/>
+</div>

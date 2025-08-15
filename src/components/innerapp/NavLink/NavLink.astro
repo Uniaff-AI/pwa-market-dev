@@ -1,0 +1,16 @@
+---
+
+type NavLinkProps = {
+  linkUrl: string
+  secondary?: boolean
+  position?: boolean
+  left?: boolean
+}
+
+const { linkUrl, secondary = false, position = true, left = true } = Astro.props as NavLinkProps;
+
+---
+
+<a href={linkUrl} class={`rounded-full flex items-center justify-center size-9 ${secondary ? 'bg-[#008d49] text-white' : 'bg-white text-[#008d49]'} ${position ? `absolute top-1/2 -translate-y-1/2 ${left ? 'left-3' : 'right-3'} ` : ''}`}>
+  <slot/>
+</a>
