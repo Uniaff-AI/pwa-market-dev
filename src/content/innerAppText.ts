@@ -167,16 +167,16 @@ export const InnerAppText = {
         <br>
         <br>`,
       btns: {
-        deleteTextBtn: 'Убрать из корзины',
-        addTextBtn: 'Добавить в корзину',
-        orderTextBtn: 'Оформить заказ'
+        deleteTextBtn: 'Hapus dari keranjang',
+        addTextBtn: 'Tambah ke keranjang',
+        orderTextBtn: 'Buat pesanan'
       }
     },
   },
   basketPage: {
-    emptyTitle: 'Здесь пока что ничего нет...',
-    totalTitle: 'Конечная сумма продуктов:',
+    emptyTitle: 'Belum ada produk di keranjang...',
+    totalTitle: 'Total produk:',
     totalCurrency: 'Rp. ',
-    btnConfirmText: 'Подтвердить количество товара'
+    btnConfirmText: 'Konfirmasi jumlah produk'
   }
 }

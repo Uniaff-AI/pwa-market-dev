@@ -3,7 +3,8 @@ import { Image } from 'astro:assets';
 
 import MapIcon from '@/assets/icons/inner-app/map.svg';
 import ChevronRightIcon from '@/assets/icons/inner-app/chevron-right.svg';
-import { EmblaCarousel } from '../EmblaCarousel/EmblaCarousel';
+import { MainProduct } from '../MainProduct/MainProduct';
+import { Reviews } from '../Reviews/Reviews';
 import FooterBlockText from '../FooterBlockText/FooterBlockText';
 import { InnerAppText } from '@/content/innerAppText';
 ---
@@ -59,16 +60,17 @@ import { InnerAppText } from '@/content/innerAppText';
       </div>
     </div>
 
-    <!-- Promo Section -->
+    <!-- Main Product Section -->
     <div class="my-5">
       <div class="flex justify-between items-center mb-5 px-4">
-        <p class="text-lg font-semibold">{InnerAppText.mainApp.promoSection.title}</p>
-        <a href="#" class="underline text-[#01A444] flex items-center">
-          {InnerAppText.mainApp.promoSection.linkTitle}
-          <ChevronRightIcon class="size-5" />
-        </a>
+        <p class="text-lg font-semibold">Produk Utama</p>
       </div>
-      <EmblaCarousel client:visible />
+      <MainProduct client:visible />
+    </div>
+
+    <!-- Reviews Section -->
+    <div class="px-4">
+      <Reviews client:visible />
     </div>
 
     <!-- Social Media Section -->
