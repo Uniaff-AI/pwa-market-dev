@@ -3,7 +3,6 @@ import { Image } from 'astro:assets';
 
 import MapIcon from '@/assets/icons/inner-app/map.svg';
 import ChevronRightIcon from '@/assets/icons/inner-app/chevron-right.svg';
-import { MainProduct } from '../MainProduct/MainProduct';
 import { Reviews } from '../Reviews/Reviews';
 import FooterBlockText from '../FooterBlockText/FooterBlockText';
 import { InnerAppText } from '@/content/innerAppText';
@@ -58,14 +57,6 @@ import { InnerAppText } from '@/content/innerAppText';
           {InnerAppText.mainApp.saleProductCard.btnTitle}
         </button>
       </div>
-    </div>
-
-    <!-- Main Product Section -->
-    <div class="my-5">
-      <div class="flex justify-between items-center mb-5 px-4">
-        <p class="text-lg font-semibold">Produk Utama</p>
-      </div>
-      <MainProduct client:visible />
     </div>
 
     <!-- Reviews Section -->

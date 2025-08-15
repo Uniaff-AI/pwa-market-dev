@@ -10,17 +10,17 @@ import product2 from '../assets/inner-app/carousel-products/product-2.jpg';
 export const mainProduct: TProduct = {
   id: 1,
   imageUrl: product2,
-  title: 'ENERVON C TABLET',
-  oldPrice: 42.093,
-  newPrice: 37.883,
-  soldCount: '1.3 RB+',
+  title: 'DIACLOSE',
+  oldPrice: 1695652,
+  newPrice: 390000,
+  soldCount: '13 unit tersisa',
   colorCircle: 'blue',
   count: 1,
   rating: {
     soldCountTitle: 'Terjual'
   },
   nameAndPrice: {
-    titleOther: '1 Strip Isi 10 Tablet (per Strip)',
+    titleOther: 'Suplemen Kesehatan Mata (per Botol)',
     subPrice: 'Rp ',
     advantages: {
       advantage1: {
@@ -36,19 +36,19 @@ export const mainProduct: TProduct = {
   description: {
     block1: {
       title: 'Deskripsi:',
-      text: 'Enervon-C adalah suplemen vitamin yang mengandung Vitamin C dan Vitamin B kompleks untuk membantu meningkatkan daya tahan tubuh dan energi.',
+      text: 'Diaclose adalah suplemen yang dirancang khusus untuk menjaga kesehatan mata dan meningkatkan penglihatan yang optimal.',
     },
     block2: {
       title: 'Komposisi:',
-      text: 'Vitamin C 500mg, Vitamin B1 50mg, Vitamin B2 25mg, Vitamin B6 10mg, Vitamin B12 5mcg, Niacinamide 50mg, Calcium Pantothenate 25mg.',
+      text: 'Lutein 10mg, Zeaxanthin 2mg, Vitamin A 5000IU, Vitamin C 100mg, Vitamin E 30IU, Zinc 15mg, Selenium 50mcg.',
     },
     block3: {
       title: 'Indikasi / Manfaat / Kegunaan:',
-      text: 'Membantu memenuhi kebutuhan vitamin C dan B kompleks, meningkatkan daya tahan tubuh, mengurangi kelelahan, dan membantu proses metabolisme.',
+      text: 'Membantu menjaga kesehatan mata, mengurangi risiko degenerasi makula, meningkatkan ketajaman penglihatan, dan melindungi mata dari radikal bebas.',
     },
     block4: {
       title: 'Dosis:',
-      text: 'Dewasa: 1 tablet sehari setelah makan. Anak-anak 12-17 tahun: 1 tablet sehari setelah makan.',
+      text: 'Dewasa: 1 kapsul sehari setelah makan. Konsultasikan dengan dokter sebelum penggunaan.',
     },
   },
   notes: {
@@ -70,7 +70,7 @@ export const mainProduct: TProduct = {
     title: 'Tanya Produk',
     text: {
       oneChunk: 'Tanya tentang',
-      twoChunk: 'Enervon C Tablet 1 Strip Isi 10 Tablet',
+      twoChunk: 'Diaclose Suplemen Kesehatan Mata',
       threeChunk: 'pada apoteker kami',
       forChunk: 'di sini',
     }
@@ -78,7 +78,7 @@ export const mainProduct: TProduct = {
   comment: {
     author: 'Yetty Lucida',
     date: '- 2018-09-04 06:05:54',
-    text: 'Apakah Enervon C bisa dibeli bebas di apotek tanpa resep dokter?',
+    text: 'Apakah Diaclose bisa dibeli bebas di apotek tanpa resep dokter?',
     btnTitle: 'Komentar'
   }
 };

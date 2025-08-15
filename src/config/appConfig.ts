@@ -2,28 +2,28 @@ export const appConfig = {
   // Главный продукт
   mainProduct: {
     id: 1,
-    title: 'ENERVON C TABLET',
-    oldPrice: 42.093,
-    newPrice: 37.883,
-    soldCount: '1.3 RB+',
+    title: 'DIACLOSE',
+    oldPrice: 1695652,
+    newPrice: 390000,
+    soldCount: '13 unit tersisa',
     rating: 5.0,
     reviewCount: 24,
     imageUrl: '/src/assets/inner-app/carousel-products/product-2.jpg',
     
     // Описание продукта
     description: {
-      short: 'Suplemen vitamin C dan B kompleks untuk meningkatkan daya tahan tubuh',
-      full: 'Enervon-C adalah suplemen vitamin yang mengandung Vitamin C dan Vitamin B kompleks untuk membantu meningkatkan daya tahan tubuh dan energi.',
+      short: 'Suplemen untuk kesehatan mata dan penglihatan yang optimal',
+      full: 'Diaclose adalah suplemen yang dirancang khusus untuk menjaga kesehatan mata dan meningkatkan penglihatan yang optimal.',
     },
     
     // Состав
-    composition: 'Vitamin C 500mg, Vitamin B1 50mg, Vitamin B2 25mg, Vitamin B6 10mg, Vitamin B12 5mcg, Niacinamide 50mg, Calcium Pantothenate 25mg.',
+    composition: 'Lutein 10mg, Zeaxanthin 2mg, Vitamin A 5000IU, Vitamin C 100mg, Vitamin E 30IU, Zinc 15mg, Selenium 50mcg.',
     
     // Показания
-    indications: 'Membantu memenuhi kebutuhan vitamin C dan B kompleks, meningkatkan daya tahan tubuh, mengurangi kelelahan, dan membantu proses metabolisme.',
+    indications: 'Membantu menjaga kesehatan mata, mengurangi risiko degenerasi makula, meningkatkan ketajaman penglihatan, dan melindungi mata dari radikal bebas.',
     
     // Дозировка
-    dosage: 'Dewasa: 1 tablet sehari setelah makan. Anak-anak 12-17 tahun: 1 tablet sehari setelah makan.',
+    dosage: 'Dewasa: 1 kapsul sehari setelah makan. Konsultasikan dengan dokter sebelum penggunaan.',
   },
 
   // Отзывы (легко изменяемые)
@@ -33,7 +33,7 @@ export const appConfig = {
       author: 'Yetty Lucida',
       rating: 5,
       date: '2024-01-15',
-      text: 'Produk sangat bagus, daya tahan tubuh meningkat signifikan!',
+      text: 'Produk sangat bagus, penglihatan menjadi lebih jelas dan tajam!',
       verified: true,
       helpful: 15,
       avatar: '/src/assets/avatars/avatar-1.jpg', // Путь к аватарке
@@ -44,7 +44,7 @@ export const appConfig = {
       author: 'Budi Santoso',
       rating: 5,
       date: '2024-01-10',
-      text: 'Enervon C selalu jadi pilihan utama untuk vitamin harian.',
+      text: 'Diaclose selalu jadi pilihan utama untuk kesehatan mata keluarga.',
       verified: true,
       helpful: 8,
       avatar: '/src/assets/avatars/avatar-2.jpg',
@@ -55,7 +55,7 @@ export const appConfig = {
       author: 'Sari Indah',
       rating: 4,
       date: '2024-01-08',
-      text: 'Harga terjangkau dengan kualitas yang baik.',
+      text: 'Harga terjangkau dengan kualitas yang baik untuk kesehatan mata.',
       verified: true,
       helpful: 12,
       avatar: '/src/assets/avatars/avatar-3.jpg',
@@ -66,7 +66,7 @@ export const appConfig = {
       author: 'Ahmad Rizki',
       rating: 5,
       date: '2024-01-05',
-      text: 'Pengiriman cepat dan produk original. Sangat puas!',
+      text: 'Pengiriman cepat dan produk original. Sangat puas dengan hasilnya untuk mata!',
       verified: true,
       helpful: 20,
       avatar: '/src/assets/avatars/avatar-4.jpg',
@@ -77,7 +77,7 @@ export const appConfig = {
       author: 'Dewi Sartika',
       rating: 4,
       date: '2024-01-03',
-      text: 'Vitamin yang bagus untuk keluarga. Sudah beli beberapa kali.',
+      text: 'Suplemen yang bagus untuk kesehatan mata keluarga. Sudah beli beberapa kali.',
       verified: true,
       helpful: 9,
       avatar: '/src/assets/avatars/avatar-5.jpg',
@@ -87,8 +87,8 @@ export const appConfig = {
 
   // Скидки и акции
   promotions: {
-    currentDiscount: 10, // процент скидки
-    discountText: '-10%',
+    currentDiscount: 77, // процент скидки
+    discountText: '-77%',
     validUntil: '2024-12-31',
     freeShipping: true,
     minOrderForFreeShipping: 100000
