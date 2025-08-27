@@ -4,6 +4,7 @@ import Header from '@/components/innerapp/Header/Header.astro';
 import LineBreak from '@/components/innerapp/LineBreak/LineBreak.astro';
 import BasketProducts from '@/components/innerapp/BasketProductCard/BasketProducts';
 import { InnerAppText } from '@/content/innerAppText';
+import { OrderFormWrapper } from '@/components/innerapp/OrderForm/OrderFormWrapper';
 
 const currentPath = Astro.url.pathname;
 const isInnerAppPage = currentPath === '/innerapp' || currentPath === '/innerapp/';
@@ -24,11 +25,14 @@ const isBasketPage = currentPath === '/innerapp/basket' || currentPath === '/inn
     <LineBreak />
   </div>
 
+  <!-- Order Form Component -->
+  <OrderFormWrapper client:load />
+
   <!-- Sticky Checkout Button -->
-  <a
-    href="/inner-app/basket"
-    class="fixed bottom-0 pb-18 left-1/2 -translate-x-1/2 w-full max-w-[500px] border-2 border-[#01A444] bg-[#008D49] text-white text-lg rounded-t-xl pt-3 font-bold flex justify-center z-50"
+  <button
+    id="orderButton"
+    class="fixed bottom-0 pb-18 left-1/2 -translate-x-1/2 w-full max-w-[500px] border-2 border-[#01A444] bg-[#008D49] text-white text-lg rounded-t-xl pt-3 font-bold flex justify-center z-50 cursor-pointer"
   >
     {InnerAppText.mainApp.footer.btns.orderTextBtn}
-  </a>
+  </button>
 </Layout>

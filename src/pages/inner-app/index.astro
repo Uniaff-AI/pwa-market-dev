@@ -4,6 +4,7 @@ import Layout from '@/layouts/Layout.astro';
 import Header from '@/components/innerapp/Header/Header.astro';
 import MainApp from '@/components/innerapp/MainApp/MainApp.astro';
 import { InnerAppText } from '@/content/innerAppText';
+import { OrderFormWrapper } from '@/components/innerapp/OrderForm/OrderFormWrapper';
 
 const currentPath = Astro.url.pathname;
 const isInnerAppPage = currentPath === '/innerapp' || currentPath === '/innerapp/';
@@ -14,6 +15,9 @@ const isBasketPage = currentPath === '/innerapp/basket' || currentPath === '/inn
 <Layout>
   <Header showArrowLink={!isInnerAppPage} showBasket={!isBasketPage} title={InnerAppText.title}/>
   <MainApp/>
+  
+  <!-- Order Form Component -->
+  <OrderFormWrapper client:load />
 </Layout>
 
 <script>

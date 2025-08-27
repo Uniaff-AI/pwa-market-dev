@@ -36,7 +36,7 @@ export const appConfig = {
       text: 'Produk sangat bagus, penglihatan menjadi lebih jelas dan tajam!',
       verified: true,
       helpful: 15,
-      avatar: '/src/assets/avatars/avatar-1.jpg', // Путь к аватарке
+      avatar: '/src/assets/inner-app/carousel-products/product-1.jpg', // Путь к аватарке
       avatarInitials: 'YL' // Инициалы для fallback
     },
     {
@@ -47,7 +47,7 @@ export const appConfig = {
       text: 'Diaclose selalu jadi pilihan utama untuk kesehatan mata keluarga.',
       verified: true,
       helpful: 8,
-      avatar: '/src/assets/avatars/avatar-2.jpg',
+      avatar: '/src/assets/inner-app/carousel-products/product-2.jpg',
       avatarInitials: 'BS'
     },
     {
@@ -58,7 +58,7 @@ export const appConfig = {
       text: 'Harga terjangkau dengan kualitas yang baik untuk kesehatan mata.',
       verified: true,
       helpful: 12,
-      avatar: '/src/assets/avatars/avatar-3.jpg',
+      avatar: '/src/assets/inner-app/carousel-products/product-3.jpg',
       avatarInitials: 'SI'
     },
     {
@@ -69,7 +69,7 @@ export const appConfig = {
       text: 'Pengiriman cepat dan produk original. Sangat puas dengan hasilnya untuk mata!',
       verified: true,
       helpful: 20,
-      avatar: '/src/assets/avatars/avatar-4.jpg',
+      avatar: '/src/assets/inner-app/carousel-products/product-4.jpg',
       avatarInitials: 'AR'
     },
     {
@@ -80,7 +80,7 @@ export const appConfig = {
       text: 'Suplemen yang bagus untuk kesehatan mata keluarga. Sudah beli beberapa kali.',
       verified: true,
       helpful: 9,
-      avatar: '/src/assets/avatars/avatar-5.jpg',
+      avatar: '/src/assets/inner-app/carousel-products/product-5.jpg',
       avatarInitials: 'DS'
     }
   ],
@@ -131,13 +131,51 @@ export const appConfig = {
 
   // VSL (Video Sales Letter) настройки
   vsl: {
-    enabled: true,
+    enabled: true, // Включено обратно
     videoUrl: 'https://example.com/diaclose-vsl.mp4', // URL вашего VSL видео
-    posterUrl: '/src/assets/vsl/diaclose-poster.jpg', // Постер для видео
+    posterUrl: '/src/assets/inner-app/sale-product.png', // Используем доступное изображение
     title: 'VSL - Diaclose',
     autoPlay: false,
     showControls: true,
     fallbackText: 'VSL' // Текст если видео недоступно
+  },
+
+  // API настройки для CRM
+  api: {
+    enabled: true, // Включить/отключить отправку в CRM
+    leadEndpoint: 'https://api.pwa.uniaffcrm.com/add_lead',
+    ktCampaignId: 'default-campaign', // ID кампании, можно изменить для разных PWA
+    ktDomain: 'Mark', // Домен/байер, по умолчанию Mark
+    timeout: 10000, // Таймаут запроса в миллисекундах
+    retryAttempts: 3, // Количество попыток повтора при ошибке
+    retryDelay: 1000, // Задержка между попытками в миллисекундах
+    logErrors: true, // Логировать ошибки в консоль
+  },
+
+  // Настройки формы заказа
+  orderForm: {
+    enabled: true,
+    title: 'ऑर्डर दें', // Оформить заказ
+    subtitle: 'फॉर्म भरें और हम आपसे संपर्क करेंगे', // Заполните форму и мы свяжемся с вами
+    nameLabel: 'आपका नाम', // Ваше имя
+    phoneLabel: 'फोन नंबर', // Номер телефона
+    namePlaceholder: 'अपना नाम दर्ज करें', // Введите ваше имя
+    phonePlaceholder: '+91 XXXXX XXXXX', // Индийский формат телефона
+    submitButtonText: 'ऑर्डर करें', // Оформить заказ
+    submitButtonLoadingText: 'भेजा जा रहा है...', // Отправка...
+    successMessage: 'धन्यवाद! आपका ऑर्डर मिल गया है। हम जल्द ही आपसे संपर्क करेंगे।', // Спасибо! Ваш заказ принят...
+    errorMessage: 'कुछ गलत हुआ है। कृपया फिर से कोशिश करें।', // Произошла ошибка...
+    requiredFieldsMessage: 'कृपया सभी फ़ील्ड भरें' // Пожалуйста, заполните все поля
+  },
+
+  // Настройки валидации телефона
+  phoneValidation: {
+    enabled: true,
+    countryCode: '+91', // Код страны для Индии
+    minLength: 10, // Минимальное количество цифр
+    maxLength: 10, // Максимальное количество цифр
+    pattern: '^[6-9]\\d{9}$', // Паттерн для индийских номеров (начинается с 6-9)
+    errorMessage: 'कृपया 10 अंकों का वैध फोन नंबर दर्ज करें' // Пожалуйста, введите действительный 10-значный номер телефона
   },
 
   // Google Play отзывы (легко изменяемые)
