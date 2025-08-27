@@ -7,12 +7,20 @@ export function InstallProgress() {
   const [installing, setInstalling] = useState(false);
   const [installed, setInstalled] = useState(false);
   const [progress, setProgress] = useState(0);
-  const [isAndroid, setIsAndroid] = useState(false);
+  const [deferredPrompt, setDeferredPrompt] = useState(null);
 
   useEffect(() => {
-    // Определяем, является ли устройство Android
-    const userAgent = navigator.userAgent.toLowerCase();
-    setIsAndroid(/android/.test(userAgent));
+    // Слушаем событие PWA установки
+    const handleBeforeInstallPrompt = (e) => {
+      e.preventDefault();
+      setDeferredPrompt(e);
+    };
+    
+    window.addEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
+    
+    return () => {
+      window.removeEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
+    };
   }, []);
 
   const createShortcut = async () => {
@@ -21,31 +29,37 @@ export function InstallProgress() {
     setInstalling(true);
     setProgress(0);
 
-    // Имитируем установку PWA с анимацией
-    const interval = setInterval(() => {
-      setProgress(prev => {
-        if (prev >= 100) {
-          clearInterval(interval);
-          setInstalling(false);
+    try {
+      if (deferredPrompt) {
+        // Показываем диалог установки PWA
+        const result = await deferredPrompt.prompt();
+        
+        if (result.outcome === 'accepted') {
+          console.log('Ярлык PWA установлен');
           setInstalled(true);
-          
-          // Показываем уведомление об успешной "установке"
-          if ('Notification' in window && Notification.permission === 'granted') {
-            new Notification('K24Klik установлен!', {
-              body: 'Приложение добавлено на главный экран',
-              icon: '/favicon_v3.ico'
-            });
-          }
-          
-          return 100;
+          setInstalling(false);
+          setDeferredPrompt(null);
+        } else {
+          console.log('Пользователь отклонил установку');
+          setInstalling(false);
         }
-        return prev + 4; // Быстрее анимация
-      });
-    }, 50);
-
-    // Запрашиваем разрешение на уведомления для лучшего UX
-    if ('Notification' in window && Notification.permission === 'default') {
-      Notification.requestPermission();
+      } else {
+        // Имитируем скачивание
+        const interval = setInterval(() => {
+          setProgress(prev => {
+            if (prev >= 100) {
+              clearInterval(interval);
+              setInstalling(false);
+              setInstalled(true);
+              return 100;
+            }
+            return prev + 10;
+          });
+        }, 100);
+      }
+    } catch (error) {
+      console.error('Ошибка установки PWA:', error);
+      setInstalling(false);
     }
   };
 

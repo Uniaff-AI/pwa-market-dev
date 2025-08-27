@@ -1,7 +1,10 @@
 const CACHE_NAME = 'klik-obat-v1';
 const urlsToCache = [
   '/',
-  '/inner-app',
+  '/inner-app/',
+  '/inner-app/index.html',
+  '/inner-app/basket/',
+  '/inner-app/basket/index.html', 
   '/manifest.json',
   '/favicon_v3.ico'
 ];

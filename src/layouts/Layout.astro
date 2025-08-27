@@ -48,6 +48,20 @@ import { GooglePlayText } from '@/content/googlePlayText';
           });
       });
     }
+    
+    // Обработка установки PWA
+    let deferredPrompt;
+    
+    window.addEventListener('beforeinstallprompt', (e) => {
+      console.log('PWA можно установить');
+      e.preventDefault();
+      deferredPrompt = e;
+      window.deferredPrompt = e;
+    });
+    
+    window.addEventListener('appinstalled', (evt) => {
+      console.log('PWA было установлено');
+    });
   </script>
 </body>
 </html>
