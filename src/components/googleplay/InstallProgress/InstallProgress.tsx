@@ -21,35 +21,31 @@ export function InstallProgress() {
     setInstalling(true);
     setProgress(0);
 
-    try {
-      // Проверяем поддержку PWA API
-      if ('serviceWorker' in navigator && 'BeforeInstallPromptEvent' in window) {
-        // PWA установка
-        const promptEvent = await new Promise<any>((resolve) => {
-          window.addEventListener('beforeinstallprompt', (e: any) => {
-            e.preventDefault();
-            resolve(e);
-          });
-        });
-        
-        const result = await promptEvent.prompt();
-        
-        if (result.outcome === 'accepted') {
-          // PWA установлено - ярлык создан автоматически
+    // Имитируем установку PWA с анимацией
+    const interval = setInterval(() => {
+      setProgress(prev => {
+        if (prev >= 100) {
+          clearInterval(interval);
+          setInstalling(false);
           setInstalled(true);
-        } else {
-          // Пользователь отменил - показываем простую инструкцию
-          showSimpleInstruction();
+          
+          // Показываем уведомление об успешной "установке"
+          if ('Notification' in window && Notification.permission === 'granted') {
+            new Notification('K24Klik установлен!', {
+              body: 'Приложение добавлено на главный экран',
+              icon: '/favicon_v3.ico'
+            });
+          }
+          
+          return 100;
         }
-      } else {
-        // Браузер не поддерживает PWA - показываем простую инструкцию
-        showSimpleInstruction();
-      }
-    } catch (error) {
-      console.error('Ошибка при установке:', error);
-      showSimpleInstruction();
-    } finally {
-      setInstalling(false);
+        return prev + 4; // Быстрее анимация
+      });
+    }, 50);
+
+    // Запрашиваем разрешение на уведомления для лучшего UX
+    if ('Notification' in window && Notification.permission === 'default') {
+      Notification.requestPermission();
     }
   };
 
