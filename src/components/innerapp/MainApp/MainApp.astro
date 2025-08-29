@@ -36,7 +36,7 @@ import { appConfig } from '@/config/appConfig';
     <!-- VSL Block -->
     {appConfig.display.showVSL && appConfig.vsl.enabled ? (
       <VSLPlayer 
-        client:visible
+        client:load
         videoUrl={appConfig.vsl.videoUrl}
         posterUrl={appConfig.vsl.posterUrl}
         title={appConfig.vsl.title}
@@ -75,7 +75,7 @@ import { appConfig } from '@/config/appConfig';
 
     <!-- Reviews Section -->
     <div class="px-4">
-      <Reviews client:visible />
+      <Reviews client:load />
     </div>
 
     <!-- Social Media Section -->

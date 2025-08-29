@@ -57,7 +57,7 @@ export const BasketProductCard = ({
           {/* Изображение */}
           <div>
             <img
-              src={typeof product.imageUrl === 'string' ? product.imageUrl : product.imageUrl.src}
+              src="/src/assets/inner-app/sale-product.png"
               alt={`Image Product ${product.title}`}
               className="w-20 min-w-20"
             />

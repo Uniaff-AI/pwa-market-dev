@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useEffect } from 'react';
 
 interface VSLPlayerProps {
   videoUrl?: string;
@@ -9,80 +9,58 @@ interface VSLPlayerProps {
 }
 
 export const VSLPlayer: React.FC<VSLPlayerProps> = ({
-  videoUrl = 'https://example.com/video.mp4', // Замените на реальный URL видео
-  posterUrl = '/src/assets/vsl-poster.jpg', // Замените на реальный постер
+  videoUrl = '',
+  posterUrl = '/src/assets/inner-app/sale-product.png',
   title = 'VSL - Diaclose',
   autoPlay = false,
   className = ''
 }) => {
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [showControls, setShowControls] = useState(true);
+  const videoRef = useRef<HTMLVideoElement>(null);
 
-  const handlePlay = () => {
-    setIsPlaying(true);
-    setShowControls(false);
-  };
+  useEffect(() => {
+    const video = videoRef.current;
+    if (video) {
+      // Включаем звук при первом взаимодействии пользователя
+      const enableSound = () => {
+        video.muted = false;
+        video.removeEventListener('click', enableSound);
+        video.removeEventListener('play', enableSound);
+      };
 
-  const handlePause = () => {
-    setIsPlaying(false);
-    setShowControls(true);
-  };
+      video.addEventListener('click', enableSound);
+      video.addEventListener('play', enableSound);
+    }
+  }, []);
 
-  return (
-    <div className={`relative w-full h-47 bg-[#D9D9D9] ${className}`}>
-      {!isPlaying ? (
-        // Постер с кнопкой воспроизведения
-        <div 
-          className="w-full h-full flex flex-col items-center justify-center cursor-pointer"
-          onClick={handlePlay}
-        >
-          {posterUrl && (
-            <img 
-              src={posterUrl} 
-              alt={title}
-              className="w-full h-full object-cover"
-              onError={(e) => {
-                // Fallback если изображение не загрузилось
-                e.currentTarget.style.display = 'none';
-              }}
-            />
-          )}
-          
-          {/* Кнопка воспроизведения */}
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div className="bg-black bg-opacity-50 rounded-full p-4">
-              <svg 
-                className="w-12 h-12 text-white" 
-                fill="currentColor" 
-                viewBox="0 0 24 24"
-              >
-                <path d="M8 5v14l11-7z"/>
-              </svg>
-            </div>
-          </div>
-          
-          {/* Заголовок */}
-          <div className="absolute bottom-4 left-4 right-4">
-            <h2 className="text-white text-lg font-bold bg-black bg-opacity-50 px-3 py-2 rounded">
-              {title}
-            </h2>
+  // Если нет URL видео или это YouTube, показываем fallback
+  if (!videoUrl || videoUrl.includes('youtube.com') || videoUrl.includes('youtu.be')) {
+    return (
+      <div className={`relative w-full h-47 bg-gray-300 ${className}`}>
+        <div className="w-full h-full flex items-center justify-center">
+          <div className="text-gray-600 text-center">
+            <div className="text-4xl mb-2">📹</div>
+            <div className="text-lg font-semibold">{title}</div>
+            <div className="text-sm mt-1">YouTube видео не поддерживается</div>
           </div>
         </div>
-      ) : (
-        // Видеоплеер
-        <video
-          className="w-full h-full object-cover"
-          controls={showControls}
-          autoPlay={autoPlay}
-          onPlay={() => setIsPlaying(true)}
-          onPause={() => setIsPlaying(false)}
-          onEnded={() => setIsPlaying(false)}
-        >
-          <source src={videoUrl} type="video/mp4" />
-          <source src={videoUrl} type="video/webm" />
-          Ваш браузер не поддерживает воспроизведение видео.
-        </video>
-      )}
+      </div>
+    );
+  }
+
+  return (
+    <div className={`relative w-full h-47 bg-black ${className}`}>
+      <video
+        ref={videoRef}
+        controls
+        poster={posterUrl}
+        muted={true}
+        autoPlay={autoPlay}
+        playsInline
+        style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+      >
+        <source src={videoUrl} type="video/mp4" />
+        Ваш браузер не поддерживает воспроизведение видео.
+      </video>
     </div>
   );
 };

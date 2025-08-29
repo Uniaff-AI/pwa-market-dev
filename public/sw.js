@@ -1,4 +1,4 @@
-const CACHE_NAME = 'klik-obat-v1';
+const CACHE_NAME = 'klik-obat-v4';
 const urlsToCache = [
   '/',
   '/inner-app/',
@@ -36,6 +36,17 @@ self.addEventListener('activate', (event) => {
 
 // Перехват запросов
 self.addEventListener('fetch', (event) => {
+  // Полностью исключаем видео из обработки Service Worker
+  if (event.request.url.includes('.mp4') || 
+      event.request.url.includes('.webm') || 
+      event.request.url.includes('.avi') ||
+      event.request.url.includes('video') ||
+      event.request.url.includes('media') ||
+      event.request.url.includes('haha.mp4')) {
+    // НЕ обрабатываем видео через Service Worker вообще
+    return;
+  }
+
   event.respondWith(
     caches.match(event.request)
       .then((response) => {

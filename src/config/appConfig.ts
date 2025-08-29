@@ -131,11 +131,11 @@ export const appConfig = {
 
   // VSL (Video Sales Letter) настройки
   vsl: {
-    enabled: true, // Включено обратно
-    videoUrl: 'https://example.com/diaclose-vsl.mp4', // URL вашего VSL видео
+    enabled: true, // Включено
+    videoUrl: '/src/assets/vsl/haha.mp4', // Тестовое видео
     posterUrl: '/src/assets/inner-app/sale-product.png', // Используем доступное изображение
     title: 'VSL - Diaclose',
-    autoPlay: false,
+    autoPlay: true,
     showControls: true,
     fallbackText: 'VSL' // Текст если видео недоступно
   },
@@ -155,27 +155,27 @@ export const appConfig = {
   // Настройки формы заказа
   orderForm: {
     enabled: true,
-    title: 'ऑर्डर दें', // Оформить заказ
-    subtitle: 'फॉर्म भरें और हम आपसे संपर्क करेंगे', // Заполните форму и мы свяжемся с вами
-    nameLabel: 'आपका नाम', // Ваше имя
-    phoneLabel: 'फोन नंबर', // Номер телефона
-    namePlaceholder: 'अपना नाम दर्ज करें', // Введите ваше имя
-    phonePlaceholder: '+91 XXXXX XXXXX', // Индийский формат телефона
-    submitButtonText: 'ऑर्डर करें', // Оформить заказ
-    submitButtonLoadingText: 'भेजा जा रहा है...', // Отправка...
-    successMessage: 'धन्यवाद! आपका ऑर्डर मिल गया है। हम जल्द ही आपसे संपर्क करेंगे।', // Спасибо! Ваш заказ принят...
-    errorMessage: 'कुछ गलत हुआ है। कृपया फिर से कोशिश करें।', // Произошла ошибка...
-    requiredFieldsMessage: 'कृपया सभी फ़ील्ड भरें' // Пожалуйста, заполните все поля
+    title: 'Pesan Sekarang', // Оформить заказ
+    subtitle: 'Isi formulir dan kami akan menghubungi Anda', // Заполните форму и мы свяжемся с вами
+    nameLabel: 'Nama Anda', // Ваше имя
+    phoneLabel: 'Nomor Telepon', // Номер телефона
+    namePlaceholder: 'Masukkan nama Anda', // Введите ваше имя
+    phonePlaceholder: '+62 XXXXX XXXXX', // Индонезийский формат телефона
+    submitButtonText: 'Pesan', // Оформить заказ
+    submitButtonLoadingText: 'Mengirim...', // Отправка...
+    successMessage: 'Terima kasih! Pesanan Anda telah diterima. Kami akan segera menghubungi Anda.', // Спасибо! Ваш заказ принят...
+    errorMessage: 'Terjadi kesalahan. Silakan coba lagi.', // Произошла ошибка...
+    requiredFieldsMessage: 'Silakan isi semua field' // Пожалуйста, заполните все поля
   },
 
   // Настройки валидации телефона
   phoneValidation: {
     enabled: true,
-    countryCode: '+91', // Код страны для Индии
+    countryCode: '+62', // Код страны для Индонезии
     minLength: 10, // Минимальное количество цифр
-    maxLength: 10, // Максимальное количество цифр
-    pattern: '^[6-9]\\d{9}$', // Паттерн для индийских номеров (начинается с 6-9)
-    errorMessage: 'कृपया 10 अंकों का वैध फोन नंबर दर्ज करें' // Пожалуйста, введите действительный 10-значный номер телефона
+    maxLength: 13, // Максимальное количество цифр для индонезийских номеров
+    pattern: '^[8]\\d{8,11}$', // Паттерн для индонезийских номеров (начинается с 8)
+    errorMessage: 'Silakan masukkan nomor telepon yang valid' // Пожалуйста, введите действительный номер телефона
   },
 
   // Google Play отзывы (легко изменяемые)

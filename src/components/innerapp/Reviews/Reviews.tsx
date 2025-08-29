@@ -6,7 +6,7 @@ import { Avatar } from '../../ui/avatar';
 export const Reviews = () => {
   const { reviews, display } = appConfig;
 
-  if (!display.showReviews) {
+  if (!display.showReviews || !reviews || !Array.isArray(reviews)) {
     return null;
   }
 
@@ -60,11 +60,7 @@ export const Reviews = () => {
 
                 {/* Дата */}
                 <div className="text-sm text-gray-500 mb-2">
-                  {new Date(review.date).toLocaleDateString('id-ID', {
-                    year: 'numeric',
-                    month: 'long',
-                    day: 'numeric'
-                  })}
+                  {review.date}
                 </div>
 
                 {/* Текст отзыва */}
